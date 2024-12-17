@@ -13,14 +13,15 @@ import java.time.LocalDateTime;
 @RestController
 @Slf4j
 @RequiredArgsConstructor
-public class PriceController implements PriceControllerApi {
+public class PriceController implements PriceApi {
 
     private final DomainPriceService service;
     private final PriceToPriceResponseDataMapper mapper;
 
-    public ResponseEntity<PriceResponseData> getPrice(String searchDate, Long brandId, Long productId) {
-        log.info("New search requested: searchDate: {}, brandId: {}, productId{} ", searchDate, brandId, productId);
+    @Override
+    public ResponseEntity<PriceResponseData> getPrice(LocalDateTime searchDate, Long brandId, Long productId) {
+        log.info("New price search requested: searchDate: {}, brandId: {}, productId: {} ", searchDate, brandId, productId);
 
-        return ResponseEntity.ok().body(mapper.toPriceResponseData(service.getPrice(LocalDateTime.parse(searchDate), brandId, productId)));
+        return ResponseEntity.ok().body(mapper.toPriceResponseData(service.getPrice(searchDate, brandId, productId)));
     }
 }

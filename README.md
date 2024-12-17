@@ -1,22 +1,24 @@
-# Getting Started - Oesía Test
+# Overview - Inditex Test
 
-## Espanhol
-
-¡Hola!
+## Español
 
 Para la prueba propuesta utilicé las siguientes tecnologías asociadas al framework Spring y Springboot:
 
 *Java versión 17
 
-*Junit y Mockito
+*DevTools
 
 *Lombok
 
-*Base de datos H2
-
 *Flyway
 
+*Base de datos H2
+
 *Spring Doc
+
+*Map Struct
+
+*Junit y Mockito
 
 Flyway es una herramienta para la gestión y versionado de desarrollo en bases de datos relacionales y la utilicé para gestionar los scripts que son responsables de generar la estructura de tablas y de registrar los datos iniciales en la base de datos H2, necesarios para la prueba propuesta.
 

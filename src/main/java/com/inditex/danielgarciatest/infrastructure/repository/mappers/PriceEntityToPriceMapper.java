@@ -8,6 +8,11 @@ import com.inditex.danielgarciatest.infrastructure.repository.entities.PriceEnti
 import com.inditex.danielgarciatest.infrastructure.repository.entities.ProductEntity;
 import org.mapstruct.*;
 
+/**
+ * This interface provides a mapper implementation to convert a database price entity to price entity
+ * as well as its subclasses
+ */
+
 @Mapper(
         componentModel = MappingConstants.ComponentModel.SPRING,
         unmappedTargetPolicy = ReportingPolicy.IGNORE
@@ -15,6 +20,7 @@ import org.mapstruct.*;
 public interface PriceEntityToPriceMapper {
     @Mapping(target = "product", source = "productEntity", qualifiedByName = "entityProductToProduct")
     @Mapping(target = "brand", source = "brandEntity", qualifiedByName = "entityBrandToBrand")
+    @Mapping(target = "priceTag", source = "price")
     Price toPrice(PriceEntity priceEntity);
 
     @Named("entityProductToProduct")

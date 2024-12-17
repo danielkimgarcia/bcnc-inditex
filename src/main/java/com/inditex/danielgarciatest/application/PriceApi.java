@@ -15,32 +15,35 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.time.LocalDateTime;
+
 @RequestMapping("/price")
 @Validated
-public interface PriceControllerApi {
+public interface PriceApi {
+
+    @GetMapping
     @Operation(summary = "Price search resource", description = "Given a search date, brandId and productId, this resource will find the most priority price. The search date will be set between the start and the end date of the price registry")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Found the price", content = {@Content(mediaType = "application/json", schema = @Schema(implementation = PriceResponseData.class))}),
             @ApiResponse(responseCode = "400", description = "Some validation error happened in your request", content = @Content),
             @ApiResponse(responseCode = "404", description = "The search date has not returned any register", content = @Content)})
-    @GetMapping
     ResponseEntity<PriceResponseData> getPrice(
-            @RequestParam
+            @Schema(type = "string", name = "searchDate", example = "2020-06-14T16:00:00", description = "Search date to find a price between start and end date")
+            @RequestParam("searchDate")
             @NotNull(message = "{price.searchDate.required}")
             @JsonFormat(pattern = "yyyy-MM-ddTHH:mm:ss")
-            @Schema(type = "string", name = "searchDate", example = "2020-06-14T16:00:00", description = "Search date to find a price between start and end date")
-            String searchDate,
+            LocalDateTime searchDate,
 
-            @RequestParam
+            @Schema(type = "string", name = "productId", example = "35455", description = "The product identification")
+            @RequestParam("brandId")
             @NotNull(message = "{price.brandId.required}")
             @Min(value = 1, message = "{price.brandId.invalid}")
-            @Schema(type = "long", name = "productId", example = "35455", description = "The product identification")
             Long brandId,
 
-            @RequestParam
+            @Schema(type = "string", name = "brandId", example = "1", description = "The brand identification")
+            @RequestParam("productId")
             @NotNull(message = "{price.productId.required}")
             @Min(value = 1, message = "{price.productId.invalid}")
-            @Schema(type = "long", name = "brandId", example = "1", description = "The brand identification")
             Long productId
     );
 }

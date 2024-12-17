@@ -1,6 +1,5 @@
 package com.inditex.danielgarciatest.infrastructure.repository.entities;
 
-import com.inditex.danielgarciatest.domain.Product;
 import jakarta.persistence.*;
 import lombok.*;
 

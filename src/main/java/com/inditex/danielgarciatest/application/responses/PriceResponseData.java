@@ -1,13 +1,13 @@
 package com.inditex.danielgarciatest.application.responses;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.swagger.v3.oas.annotations.media.Schema;
 
-import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 /**
  * Java record class to represent a search a price response that is based on date interval and priority
- * of a determined brand product
+ * of a determined branded product
  *
  * @param productId
  * @param brandId
@@ -27,7 +27,23 @@ public record PriceResponseData(
         LocalDateTime startDate,
         @Schema(name = "endDate", example = "2020-06-14T16:00:00", description = "End date of the period searched")
         LocalDateTime endDate,
-        @Schema(name = "price", example = "25.45", description = "Priority price applied on the searched date")
-        BigDecimal price
+        @Schema(name = "price", example = "25.45 EUR", description = "Priority price applied on the searched date")
+        String price,
+        @Schema(name = "currencyIdentification", example = "EUR", description = "Currency identification for the price")
+        @JsonIgnore
+        String currencyIdentification
 ) {
+
+    /**
+     * Custom format for price attribute
+     */
+    public String getPrice() {
+
+        if(this.price == null){
+            return null;
+        }
+
+        return this.price.concat(" ").concat(this.currencyIdentification);
+
+    }
 }
