@@ -1,6 +1,6 @@
 # Overview - Inditex Test
 
-## Español
+## Tecnologias
 
 Para la prueba propuesta utilicé las siguientes tecnologías asociadas al framework Spring y Springboot:
 
@@ -20,17 +20,30 @@ Para la prueba propuesta utilicé las siguientes tecnologías asociadas al frame
 
 *Junit y Mockito
 
-Flyway es una herramienta para la gestión y versionado de desarrollo en bases de datos relacionales y la utilicé para gestionar los scripts que son responsables de generar la estructura de tablas y de registrar los datos iniciales en la base de datos H2, necesarios para la prueba propuesta.
+*Jacoco Plugin
 
-No es necesaria ninguna acción de configuración. Al iniciar el proyecto, se crea una instancia de H2 y FlyWay se encarga de ejecutar los scripts para la generación de la estructura.
+## Resumen
 
-Después de la inicialización del proyecto, el console de H2 puede ser accedido a través del enlace: http://localhost:8080/h2-console. Utilizar "sa" para usuario y contraseña y "jdbc:h2:~/inditex" para JDBC URL
+La arquitectura propuesta fue hexagonal, utilizando principios de SOLID y Clean Code. 
 
-Añadí pruebas unitarias al proyecto, automatizando las pruebas unitarias para los escenarios propuestos en la prueba.
+Se incluyeron pruebas unitarias en el proyecto para una cobertura máxima del código. El informe se puede consultar en la carpeta **target/jacoco/index.html**
 
-Para una mejor experiencia de documentación de la API que creo, incluí una dependencia de Spring Docs. Después de la inicialización del proyecto, el swagger con la documentación de la API puede ser accedido en el enlace: http://localhost:8080/swagger-ui/index.html
+**Flyway** es una herramienta para la gestión y versionado de desarrollo en bases de datos relacionales y la utilicé para gestionar los scripts que son responsables de generar la estructura de tablas y de registrar los datos iniciales en la base de datos **H2**, necesarios para la prueba propuesta.
 
-En caso de que el equipo que analizará el proyecto lo desee, puedo disponibilizar el proyecto también a través de GitHub.
+Un controlador de excepciones personalizado fue utilizado para tratamento de excepciones **CustomExceptionHandler**
+
+El contrato base utilizado para crear la API se puede encontrar en la carpeta **resources/openapi.yaml**
+
+Un archivo fue utilizado para formatar las mensajes de validación **resources/ValidationMessages.properties**
+
+
+## Comandos para build, install, test and start 
+
+1. ```mvn clean install -Dmaven.test.skip=true```
+2. ```java -jar target\danielgarciatest-0.0.1-SNAPSHOT.jar```
+3. ```mvn test```
+4. Acceder a la url http://localhost:8080/swagger-ui/index.html
+5. Acceder console de H2 a través del enlace: http://localhost:8080/h2-console. Utilizar "sa" para usuario y contraseña y "jdbc:h2:~/inditex" para JDBC URL
 
 
 ## English
@@ -39,23 +52,40 @@ Hello!
 
 For the proposed test, I used the following technologies associated with the Spring and Spring Boot frameworks:
 
-*Java version 17
+*Java versión 17
 
-*JUnit and Mockito
+*DevTools
 
 *Lombok
 
-*H2 Database
-
 *Flyway
+
+*Base de datos H2
 
 *Spring Doc
 
-Flyway is managing and versioning development tool for databases, and I used it to manage the scripts tha are responsible for generate the table structure and the initial data on the H2 database, necessary for the proposed test.
-No configuration action is required. When starting the project, an instance of H2 is created and FlyWay takes care of executing the scripts to generate the structure.
+*Map Struct
 
-After the project is initialized, the H2 console can be accessed through the link: http://localhost:8080/h2-console. Use "sa" for both username and password and "jdbc:h2:~/inditex" for JDBC URL
+*Junit y Mockito
 
-I added unit tests to the project, automating the unit tests for the scenarios proposed in the test.
+*Jacoco Plugin
 
-For a better API documentation experience that I created, I included a Spring Docs dependency. After the project is initialized, the Swagger with the API documentation can be accessed at the link: http://localhost:8080/swagger-ui/index.html
+The proposed architecture was hexagonal, using SOLID and Clean Code principles.
+
+Unit tests were included in the project for maximum code coverage. The report can be consulted in the folder **target/jacoco/index.html**
+
+**Flyway** is a tool for managing and versioning development in relational databases and I used it to manage the scripts that are responsible for generating the table structure and registering the initial data in the database **H2 **, necessary for the proposed test.
+
+A custom exception handler was used to handle **CustomExceptionHandler** exceptions.
+
+The base contract used to create the API can be found in the **resources/openapi.yaml** folder
+
+A file was used to format the validation messages **resources/ValidationMessages.properties**
+
+## Commands to build, install, test and start the application
+
+1. ```mvn clean install -Dmaven.test.skip=true```
+2. ```java -jar target\danielgarciatest-0.0.1-SNAPSHOT.jar```
+3. ```mvn test```
+4. Go to swagger doc throught this link: http://localhost:8080/swagger-ui/index.html
+5. H2 can be reached by this link: http://localhost:8080/h2-console. Use "sa" for user and password y "jdbc:h2:~/inditex" as JDBC URL
