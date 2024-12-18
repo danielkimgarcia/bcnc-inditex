@@ -1,4 +1,4 @@
-package com.inditex.danielgarciatest.application.exceptions;
+package com.inditex.danielgarciatest.domain.exceptions;
 
 public class NotFoundException extends RuntimeException {
     public NotFoundException(String message) {

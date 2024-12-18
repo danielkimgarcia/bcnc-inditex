@@ -1,4 +1,4 @@
-package com.inditex.danielgarciatest.domain.usecases;
+package com.inditex.danielgarciatest.application.usecases;
 
 import com.inditex.danielgarciatest.domain.Price;
 import com.inditex.danielgarciatest.domain.ports.repository.PriceRepository;

@@ -1,12 +1,9 @@
-package com.inditex.danielgarciatest;
+package com.inditex.danielgarciatest.infrastructure.repository.mappers;
 
 import com.inditex.danielgarciatest.domain.CurrencyIdentification;
 import com.inditex.danielgarciatest.domain.Price;
 import com.inditex.danielgarciatest.infrastructure.repository.entities.BrandEntity;
 import com.inditex.danielgarciatest.infrastructure.repository.entities.PriceEntity;
-import com.inditex.danielgarciatest.infrastructure.repository.entities.ProductEntity;
-import com.inditex.danielgarciatest.infrastructure.repository.mappers.PriceEntityToPriceMapper;
-import com.inditex.danielgarciatest.infrastructure.repository.mappers.PriceEntityToPriceMapperImpl;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -32,7 +29,7 @@ class PriceEntityToPriceMapperImplTest {
                 .price(BigDecimal.TEN)
                 .currencyIdentification(CurrencyIdentification.EUR)
                 .brandEntity(new BrandEntity(1L, "ZARA"))
-                .productEntity(new ProductEntity(1L, "Product", new BrandEntity(1L, "ZARA")))
+                .productId(1L)
                 .build();
 
         //when
@@ -47,7 +44,7 @@ class PriceEntityToPriceMapperImplTest {
                 .matches(p -> priceEntity.getPriority().equals(p.getPriority()))
                 .matches(p -> priceEntity.getCurrencyIdentification().equals(p.getCurrencyIdentification()))
                 .matches(p -> priceEntity.getBrandEntity().getId().equals(p.getBrand().getId()))
-                .matches(p -> priceEntity.getProductEntity().getId().equals(p.getProduct().getId()));
+                .matches(p -> priceEntity.getProductId().equals(p.getProductId()));
     }
 
     @Test

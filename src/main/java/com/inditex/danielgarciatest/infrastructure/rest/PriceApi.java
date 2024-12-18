@@ -1,7 +1,7 @@
-package com.inditex.danielgarciatest.application;
+package com.inditex.danielgarciatest.infrastructure.rest;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.inditex.danielgarciatest.application.responses.PriceResponseData;
+import com.inditex.danielgarciatest.infrastructure.rest.responses.PriceResponseData;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;

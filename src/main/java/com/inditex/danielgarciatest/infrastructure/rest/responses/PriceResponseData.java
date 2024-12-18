@@ -1,4 +1,4 @@
-package com.inditex.danielgarciatest.application.responses;
+package com.inditex.danielgarciatest.infrastructure.rest.responses;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.swagger.v3.oas.annotations.media.Schema;

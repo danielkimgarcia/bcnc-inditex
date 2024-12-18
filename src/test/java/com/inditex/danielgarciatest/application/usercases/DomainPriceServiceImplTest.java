@@ -1,12 +1,11 @@
-package com.inditex.danielgarciatest;
+package com.inditex.danielgarciatest.application.usercases;
 
-import com.inditex.danielgarciatest.application.exceptions.NotFoundException;
+import com.inditex.danielgarciatest.application.usecases.DomainPriceServiceImpl;
 import com.inditex.danielgarciatest.domain.Brand;
 import com.inditex.danielgarciatest.domain.CurrencyIdentification;
 import com.inditex.danielgarciatest.domain.Price;
-import com.inditex.danielgarciatest.domain.Product;
+import com.inditex.danielgarciatest.domain.exceptions.NotFoundException;
 import com.inditex.danielgarciatest.domain.ports.repository.PriceRepository;
-import com.inditex.danielgarciatest.domain.usecases.DomainPriceServiceImpl;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -40,7 +39,7 @@ class DomainPriceServiceImplTest {
                 .priority(1)
                 .currencyIdentification(CurrencyIdentification.EUR)
                 .brand(new Brand(1L, "ZARA"))
-                .product(new Product(1L, "Product", new Brand(1L, "ZARA")))
+                .productId(1L)
                 .build();
 
         given(repository.getPrice(any(LocalDateTime.class), anyLong(), anyLong())).willReturn(price);
@@ -57,7 +56,7 @@ class DomainPriceServiceImplTest {
                 .matches(p -> price.getPriority().equals(p.getPriority()))
                 .matches(p -> price.getCurrencyIdentification().equals(p.getCurrencyIdentification()))
                 .matches(p -> price.getBrand().getId().equals(p.getBrand().getId()))
-                .matches(p -> price.getProduct().getId().equals(p.getProduct().getId()));
+                .matches(p -> price.getProductId().equals(p.getProductId()));
 
     }
 

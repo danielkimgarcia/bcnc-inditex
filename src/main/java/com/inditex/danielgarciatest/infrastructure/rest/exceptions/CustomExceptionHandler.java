@@ -1,6 +1,7 @@
-package com.inditex.danielgarciatest.application.exceptions;
+package com.inditex.danielgarciatest.infrastructure.rest.exceptions;
 
-import com.inditex.danielgarciatest.application.responses.ErrorResponse;
+import com.inditex.danielgarciatest.domain.exceptions.NotFoundException;
+import com.inditex.danielgarciatest.infrastructure.rest.responses.ErrorResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

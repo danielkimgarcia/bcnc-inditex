@@ -1,1 +1,0 @@
-CREATE TABLE price_list(id BIGINT PRIMARY KEY, start_date TIMESTAMP, end_date TIMESTAMP, priority INTEGER, price NUMERIC(20, 2), currency_identification VARCHAR(3), brand_id BIGINT, product_id BIGINT, FOREIGN KEY(brand_id) REFERENCES brands, FOREIGN KEY(product_id) REFERENCES products)

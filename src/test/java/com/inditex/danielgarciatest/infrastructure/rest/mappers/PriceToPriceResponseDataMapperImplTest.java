@@ -1,12 +1,9 @@
-package com.inditex.danielgarciatest;
+package com.inditex.danielgarciatest.infrastructure.rest.mappers;
 
-import com.inditex.danielgarciatest.application.mappers.PriceToPriceResponseDataMapper;
-import com.inditex.danielgarciatest.application.mappers.PriceToPriceResponseDataMapperImpl;
-import com.inditex.danielgarciatest.application.responses.PriceResponseData;
 import com.inditex.danielgarciatest.domain.Brand;
 import com.inditex.danielgarciatest.domain.CurrencyIdentification;
 import com.inditex.danielgarciatest.domain.Price;
-import com.inditex.danielgarciatest.domain.Product;
+import com.inditex.danielgarciatest.infrastructure.rest.responses.PriceResponseData;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -29,7 +26,7 @@ class PriceToPriceResponseDataMapperImplTest {
                 .priceTag(BigDecimal.TEN)
                 .currencyIdentification(CurrencyIdentification.EUR)
                 .brand(new Brand(1L, "ZARA"))
-                .product(new Product(1L, "Product", new Brand(1L, "ZARA")))
+                .productId(1L)
                 .build();
 
         //when
@@ -42,7 +39,7 @@ class PriceToPriceResponseDataMapperImplTest {
                 .matches(p -> price.getPriceTag().toString().concat(" ").concat(priceResponse.currencyIdentification()).equals(p.getPrice()))
                 .matches(p -> price.getPriority().equals(p.priority()))
                 .matches(p -> price.getBrand().getId().equals(p.brandId()))
-                .matches(p -> price.getProduct().getId().equals(p.productId()));
+                .matches(p -> price.getProductId().equals(p.productId()));
     }
 
     @Test
@@ -68,7 +65,7 @@ class PriceToPriceResponseDataMapperImplTest {
                 .priceTag(BigDecimal.TEN)
                 .currencyIdentification(CurrencyIdentification.EUR)
                 .brand(null)
-                .product(new Product(1L, "Product", new Brand(1L, "ZARA")))
+                .productId(1L)
                 .build();
         //when
         PriceResponseData priceResponse = mapper.toPriceResponseData(price);
@@ -79,7 +76,7 @@ class PriceToPriceResponseDataMapperImplTest {
                 .matches(p -> price.getEndDate().equals(p.endDate()))
                 .matches(p -> price.getPriceTag().toString().concat(" ").concat(priceResponse.currencyIdentification()).equals(p.getPrice()))
                 .matches(p -> price.getPriority().equals(p.priority()))
-                .matches(p -> price.getProduct().getId().equals(p.productId()));
+                .matches(p -> price.getProductId().equals(p.productId()));
 
         Assertions.assertThat(priceResponse.brandId()).isNull();
     }
@@ -96,7 +93,7 @@ class PriceToPriceResponseDataMapperImplTest {
                 .priceTag(BigDecimal.TEN)
                 .currencyIdentification(CurrencyIdentification.EUR)
                 .brand(new Brand(1L, "ZARA"))
-                .product(null)
+                .productId(null)
                 .build();
         //when
         PriceResponseData priceResponse = mapper.toPriceResponseData(price);
@@ -124,7 +121,7 @@ class PriceToPriceResponseDataMapperImplTest {
                 .priceTag(null)
                 .currencyIdentification(null)
                 .brand(new Brand(1L, "ZARA"))
-                .product(new Product(1L, "Product", new Brand(1L, "ZARA")))
+                .productId(1L)
                 .build();
         //when
         PriceResponseData priceResponse = mapper.toPriceResponseData(price);
@@ -135,7 +132,7 @@ class PriceToPriceResponseDataMapperImplTest {
                 .matches(p -> price.getEndDate().equals(p.endDate()))
                 .matches(p -> price.getPriority().equals(p.priority()))
                 .matches(p -> price.getBrand().getId().equals(p.brandId()))
-                .matches(p -> price.getProduct().getId().equals(p.productId()));
+                .matches(p -> price.getProductId().equals(p.productId()));
 
         Assertions.assertThat(priceResponse.getPrice()).isNull();
     }

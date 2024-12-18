@@ -9,5 +9,5 @@ import java.util.Optional;
 
 @Repository
 public interface H2DbPriceRepository extends JpaRepository<PriceEntity, Long> {
-    Optional<PriceEntity> findFirstByBrandEntityIdAndProductEntityIdAndStartDateLessThanEqualAndEndDateGreaterThanEqualOrderByPriorityDesc(Long brandId, Long productId, LocalDateTime startDate, LocalDateTime endDate);
+    Optional<PriceEntity> findFirstByBrandEntityIdAndProductIdAndStartDateLessThanEqualAndEndDateGreaterThanEqualOrderByPriorityDesc(Long brandId, Long productId, LocalDateTime startDate, LocalDateTime endDate);
 }

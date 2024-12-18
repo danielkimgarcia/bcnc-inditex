@@ -18,5 +18,5 @@ public class Price {
     private BigDecimal priceTag;
     private CurrencyIdentification currencyIdentification;
     private Brand brand;
-    private Product product;
+    private Long productId;
 }

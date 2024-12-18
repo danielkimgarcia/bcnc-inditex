@@ -30,7 +30,5 @@ public class PriceEntity {
     @JoinColumn(name = "BRAND_ID")
     private BrandEntity brandEntity;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "PRODUCT_ID")
-    private ProductEntity productEntity;
+    private Long productId;
 }

@@ -1,7 +1,7 @@
-package com.inditex.danielgarciatest.application;
+package com.inditex.danielgarciatest.infrastructure.rest;
 
-import com.inditex.danielgarciatest.application.mappers.PriceToPriceResponseDataMapper;
-import com.inditex.danielgarciatest.application.responses.PriceResponseData;
+import com.inditex.danielgarciatest.infrastructure.rest.mappers.PriceToPriceResponseDataMapper;
+import com.inditex.danielgarciatest.infrastructure.rest.responses.PriceResponseData;
 import com.inditex.danielgarciatest.domain.ports.service.DomainPriceService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

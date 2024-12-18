@@ -1,4 +1,4 @@
-package com.inditex.danielgarciatest;
+package com.inditex.danielgarciatest.infrastructure.rest;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

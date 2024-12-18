@@ -1,6 +1,6 @@
-package com.inditex.danielgarciatest.application.mappers;
+package com.inditex.danielgarciatest.infrastructure.rest.mappers;
 
-import com.inditex.danielgarciatest.application.responses.PriceResponseData;
+import com.inditex.danielgarciatest.infrastructure.rest.responses.PriceResponseData;
 import com.inditex.danielgarciatest.domain.Price;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
@@ -18,7 +18,7 @@ import org.mapstruct.ReportingPolicy;
         unmappedTargetPolicy = ReportingPolicy.IGNORE
 )
 public interface PriceToPriceResponseDataMapper {
-    @Mapping(target = "productId", source = "product.id")
+    @Mapping(target = "productId", source = "productId")
     @Mapping(target = "brandId", source = "brand.id")
     @Mapping(target = "price", source = "priceTag")
     PriceResponseData toPriceResponseData(Price price);
