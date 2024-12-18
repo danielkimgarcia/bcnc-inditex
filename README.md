@@ -36,6 +36,8 @@ El contrato base utilizado para crear la API se puede encontrar en la carpeta **
 
 Un archivo fue utilizado para formatar las mensajes de validación **resources/ValidationMessages.properties**
 
+**Nota importante:** Para esta prueba, la relación entre las entidades Marca y Precio se normalizó utilizando la anotación @ManyToOne, que para fines de rendimiento no se recomienda si los resultados no requieren dicha relación para devolver datos.
+
 
 ## Comandos para build, install, test and start 
 
@@ -43,7 +45,7 @@ Un archivo fue utilizado para formatar las mensajes de validación **resources/V
 2. ```java -jar target\danielgarciatest-0.0.1-SNAPSHOT.jar```
 3. ```mvn test```
 4. Acceder a la url http://localhost:8080/swagger-ui/index.html
-5. Acceder console de H2 a través del enlace: http://localhost:8080/h2-console. Utilizar "sa" para usuario y contraseña y "jdbc:h2:~/inditex" para JDBC URL
+5. Acceder console de H2 a través del enlace: http://localhost:8080/h2-console. Utilizar "sa" para usuario y contraseña y "jdbc:h2:mem:inditex" para JDBC URL
 
 
 ## English
@@ -82,10 +84,12 @@ The base contract used to create the API can be found in the **resources/openapi
 
 A file was used to format the validation messages **resources/ValidationMessages.properties**
 
+**Important note:** For this test, the relationship between the Brand and Price entities was normalized using the @ManyToOne annotation, which for performance purposes is not recommended if the results do not require such a relationship to return data.
+
 ## Commands to build, install, test and start the application
 
 1. ```mvn clean install -Dmaven.test.skip=true```
 2. ```java -jar target\danielgarciatest-0.0.1-SNAPSHOT.jar```
 3. ```mvn test```
 4. Go to swagger doc throught this link: http://localhost:8080/swagger-ui/index.html
-5. H2 can be reached by this link: http://localhost:8080/h2-console. Use "sa" for user and password y "jdbc:h2:~/inditex" as JDBC URL
+5. H2 can be reached by this link: http://localhost:8080/h2-console. Use "sa" for user and password y "jdbc:h2:mem:inditex" as JDBC URL
