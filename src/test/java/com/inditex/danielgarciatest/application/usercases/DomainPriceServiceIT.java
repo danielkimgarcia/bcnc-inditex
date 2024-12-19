@@ -20,7 +20,7 @@ import java.time.LocalDateTime;
 import static org.mockito.BDDMockito.*;
 
 @ExtendWith(MockitoExtension.class)
-class DomainPriceServiceImplTest {
+class DomainPriceServiceIT {
 
     @InjectMocks
     private DomainPriceServiceImpl service;
@@ -29,7 +29,7 @@ class DomainPriceServiceImplTest {
     private PriceRepository repository;
 
     @Test
-    @DisplayName("Testing the default scenario")
+    @DisplayName("DomainPriceServiceIT -> Testing the default scenario")
     void scenario1() {
         var price = Price.builder()
                 .id(1L)
@@ -61,7 +61,7 @@ class DomainPriceServiceImplTest {
     }
 
     @Test
-    @DisplayName("Testing notFound exception scenario")
+    @DisplayName("DomainPriceServiceIT -> Testing notFound exception scenario")
     void scenario2() {
         given(repository.getPrice(any(LocalDateTime.class), anyLong(), anyLong())).willThrow(new NotFoundException("The search date has not returned any register"));
 

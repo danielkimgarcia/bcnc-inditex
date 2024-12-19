@@ -19,7 +19,7 @@ class PriceEntityToPriceMapperImplTest {
     private final PriceEntityToPriceMapper mapper = new PriceEntityToPriceMapperImpl();
 
     @Test
-    @DisplayName("Testing PriceEntityToPriceMapper")
+    @DisplayName("PriceEntityToPriceMapperImplTest -> Testing default scenario")
     void scenario1() {
         var priceEntity = PriceEntity.builder()
                 .id(1L)
@@ -48,7 +48,7 @@ class PriceEntityToPriceMapperImplTest {
     }
 
     @Test
-    @DisplayName("Testing PriceEntityToPriceMapper - nullable condition")
+    @DisplayName("PriceEntityToPriceMapperImplTest -> Testing nullable condition")
     void scenario2() {
         //given
         //when

@@ -16,7 +16,7 @@ class PriceToPriceResponseDataMapperImplTest {
     private final PriceToPriceResponseDataMapper mapper = new PriceToPriceResponseDataMapperImpl();
 
     @Test
-    @DisplayName("Testing PriceToPriceResponseDataMapper")
+    @DisplayName("PriceToPriceResponseDataMapperImplTest -> Testing default scenario")
     void scenario1() {
         var price = Price.builder()
                 .id(1L)
@@ -43,7 +43,7 @@ class PriceToPriceResponseDataMapperImplTest {
     }
 
     @Test
-    @DisplayName("Testing PriceToPriceResponseDataMapper - nullable condition")
+    @DisplayName("PriceToPriceResponseDataMapperImplTest -> Testing nullable condition")
     void scenario2() {
         //given
         //when
@@ -54,7 +54,7 @@ class PriceToPriceResponseDataMapperImplTest {
     }
 
     @Test
-    @DisplayName("Testing PriceToPriceResponseDataMapper - when brand is null")
+    @DisplayName("PriceToPriceResponseDataMapperImplTest -> Testing when brand is null")
     void scenario3() {
         //given
         var price = Price.builder()
@@ -82,7 +82,7 @@ class PriceToPriceResponseDataMapperImplTest {
     }
 
     @Test
-    @DisplayName("Testing PriceToPriceResponseDataMapper - when product is null")
+    @DisplayName("PriceToPriceResponseDataMapperImplTest -> Testing when product is null")
     void scenario4() {
         //given
         var price = Price.builder()
@@ -110,7 +110,7 @@ class PriceToPriceResponseDataMapperImplTest {
     }
 
     @Test
-    @DisplayName("Testing PriceToPriceResponseDataMapper - when priceTag and currencyIdentification is null")
+    @DisplayName("PriceToPriceResponseDataMapperImplTest -> Testing when priceTag and currencyIdentification is null")
     void scenario5() {
         //given
         var price = Price.builder()

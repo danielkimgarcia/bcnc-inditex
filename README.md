@@ -4,23 +4,23 @@
 
 Para la prueba propuesta utilicé las siguientes tecnologías asociadas al framework Spring y Springboot:
 
-*Java versión 17
+- Java versión 17
 
-*DevTools
+- DevTools
 
-*Lombok
+- Lombok
 
-*Flyway
+- Flyway
 
-*Base de datos H2
+- Base de datos H2
 
-*Spring Doc
+- Spring Doc
 
-*Map Struct
+- Map Struct
 
-*Junit y Mockito
+- Junit y Mockito
 
-*Jacoco Plugin
+- Jacoco Plugin
 
 ## Resumen
 
@@ -36,7 +36,10 @@ El contrato base utilizado para crear la API se puede encontrar en la carpeta **
 
 Un archivo fue utilizado para formatar las mensajes de validación **resources/ValidationMessages.properties**
 
-**Nota importante:** Para esta prueba, la relación entre las entidades Marca y Precio se normalizó utilizando la anotación @ManyToOne, que para fines de rendimiento no se recomienda si los resultados no requieren dicha relación para devolver datos.
+**Notas importantes:** 
+
+- Para esta prueba, la relación entre las entidades Marca y Precio se normalizó utilizando la anotación @ManyToOne, que para fines de rendimiento no se recomienda si los resultados no requieren dicha relación para devolver datos.
+- La interfaz API creada para el controlador no se creó automáticamente a través del archivo de definición openAPI.yaml. Sin embargo, se recomienda ampliamente utilizar este procedimiento automatizado utilizando herramientas como swagger codegen u openApi Generator.
 
 
 ## Comandos para build, install, test and start 
@@ -54,23 +57,23 @@ Hello!
 
 For the proposed test, I used the following technologies associated with the Spring and Spring Boot frameworks:
 
-*Java versión 17
+- Java version 17
 
-*DevTools
+- DevTools
 
-*Lombok
+- Lombok
 
-*Flyway
+- Flyway
 
-*Base de datos H2
+- H2 Database
 
-*Spring Doc
+- Spring Doc
 
-*Map Struct
+- Map Struct
 
-*Junit y Mockito
+- Junit y Mockito
 
-*Jacoco Plugin
+- Jacoco Plugin
 
 The proposed architecture was hexagonal, using SOLID and Clean Code principles.
 
@@ -84,7 +87,10 @@ The base contract used to create the API can be found in the **resources/openapi
 
 A file was used to format the validation messages **resources/ValidationMessages.properties**
 
-**Important note:** For this test, the relationship between the Brand and Price entities was normalized using the @ManyToOne annotation, which for performance purposes is not recommended if the results do not require such a relationship to return data.
+**Important notes:** 
+
+- For this test, the relationship between the Brand and Price entities was normalized using the @ManyToOne annotation, which for performance purposes is not recommended if the results do not require such a relationship to return data.
+- The API interface created for the controller was not automatically created via the openAPI.yaml definition file. However, it is highly recommended to use this automated procedure using tools such as swagger codegen or openApi Generator.
 
 ## Commands to build, install, test and start the application
 

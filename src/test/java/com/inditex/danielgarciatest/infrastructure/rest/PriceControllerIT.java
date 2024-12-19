@@ -11,13 +11,13 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 @SpringBootTest
 @AutoConfigureMockMvc
-class PriceControllerTest {
+class PriceControllerIT {
 
     @Autowired
     private MockMvc mvc;
 
     @Test
-    @DisplayName("petición a las 10:00 del día 14 del producto 35455 para la brand 1 (ZARA)")
+    @DisplayName("PriceControllerIT -> petición a las 10:00 del día 14 del producto 35455 para la brand 1 (ZARA)")
     void scenario1() throws Exception {
         mvc.perform(MockMvcRequestBuilders
                         .get("/price")
@@ -38,7 +38,7 @@ class PriceControllerTest {
     }
 
     @Test
-    @DisplayName("petición a las 16:00 del día 14 del producto 35455 para la brand 1 (ZARA)")
+    @DisplayName("PriceControllerIT -> petición a las 16:00 del día 14 del producto 35455 para la brand 1 (ZARA)")
     void scenario2() throws Exception {
         mvc.perform(MockMvcRequestBuilders
                         .get("/price")
@@ -59,7 +59,7 @@ class PriceControllerTest {
     }
 
     @Test
-    @DisplayName("petición a las 21:00 del día 14 del producto 35455 para la brand 1 (ZARA)")
+    @DisplayName("PriceControllerIT -> petición a las 21:00 del día 14 del producto 35455 para la brand 1 (ZARA)")
     void scenario3() throws Exception {
         mvc.perform(MockMvcRequestBuilders
                         .get("/price")
@@ -80,7 +80,7 @@ class PriceControllerTest {
     }
 
     @Test
-    @DisplayName("petición a las 10:00 del día 15 del producto 35455 para la brand 1 (ZARA)")
+    @DisplayName("PriceControllerIT -> petición a las 10:00 del día 15 del producto 35455 para la brand 1 (ZARA)")
     void scenario4() throws Exception {
         mvc.perform(MockMvcRequestBuilders
                         .get("/price")
@@ -101,7 +101,7 @@ class PriceControllerTest {
     }
 
     @Test
-    @DisplayName("petición a las 21:00 del día 16 del producto 35455 para la brand 1 (ZARA)")
+    @DisplayName("PriceControllerIT -> petición a las 21:00 del día 16 del producto 35455 para la brand 1 (ZARA)")
     void scenario5() throws Exception {
         mvc.perform(MockMvcRequestBuilders
                         .get("/price")
@@ -122,7 +122,7 @@ class PriceControllerTest {
     }
 
     @Test
-    @DisplayName("Search with all parameters but without any return")
+    @DisplayName("PriceControllerIT -> Search with all parameters but without any return")
     void scenario6() throws Exception {
         mvc.perform(MockMvcRequestBuilders
                         .get("/price")
@@ -138,7 +138,7 @@ class PriceControllerTest {
     }
 
     @Test
-    @DisplayName("Search without any parameters")
+    @DisplayName("PriceControllerIT -> Search without any parameters")
     void scenario7() throws Exception {
         mvc.perform(MockMvcRequestBuilders
                         .get("/price"))
@@ -151,7 +151,7 @@ class PriceControllerTest {
     }
 
     @Test
-    @DisplayName("Search with searchDate only")
+    @DisplayName("PriceControllerIT -> Search with searchDate only")
     void scenario8() throws Exception {
         mvc.perform(MockMvcRequestBuilders
                         .get("/price")
@@ -166,7 +166,7 @@ class PriceControllerTest {
     }
 
     @Test
-    @DisplayName("Search with brandId only")
+    @DisplayName("PriceControllerIT -> Search with brandId only")
     void scenario9() throws Exception {
         mvc.perform(MockMvcRequestBuilders
                         .get("/price")
@@ -181,7 +181,7 @@ class PriceControllerTest {
     }
 
     @Test
-    @DisplayName("Search with productId only")
+    @DisplayName("PriceControllerIT -> Search with productId only")
     void scenario10() throws Exception {
         mvc.perform(MockMvcRequestBuilders
                         .get("/price")
@@ -196,7 +196,7 @@ class PriceControllerTest {
     }
 
     @Test
-    @DisplayName("Search with searchDate and brandId")
+    @DisplayName("PriceControllerIT -> Search with searchDate and brandId")
     void scenario11() throws Exception {
         mvc.perform(MockMvcRequestBuilders
                         .get("/price")
@@ -212,7 +212,7 @@ class PriceControllerTest {
     }
 
     @Test
-    @DisplayName("Search with searchDate and productId")
+    @DisplayName("PriceControllerIT -> Search with searchDate and productId")
     void scenario12() throws Exception {
         mvc.perform(MockMvcRequestBuilders
                         .get("/price")
@@ -228,7 +228,7 @@ class PriceControllerTest {
     }
 
     @Test
-    @DisplayName("Search with productId and brandId")
+    @DisplayName("PriceControllerIT -> Search with productId and brandId")
     void scenario13() throws Exception {
         mvc.perform(MockMvcRequestBuilders
                         .get("/price")
