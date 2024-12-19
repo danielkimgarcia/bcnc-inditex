@@ -38,9 +38,21 @@ Un archivo fue utilizado para formatar las mensajes de validación **resources/V
 
 **Notas importantes:** 
 
-- Para esta prueba, la relación entre las entidades Marca y Precio se normalizó utilizando la anotación @ManyToOne, que para fines de rendimiento no se recomienda si los resultados no requieren dicha relación para devolver datos.
 - La interfaz API creada para el controlador no se creó automáticamente a través del archivo de definición openAPI.yaml. Sin embargo, se recomienda ampliamente utilizar este procedimiento automatizado utilizando herramientas como swagger codegen u openApi Generator.
+- Para esta prueba, la relación entre las entidades Marca y Precio se normalizó utilizando la anotación @ManyToOne, que para fines de rendimiento no se recomienda si los resultados no requieren dicha relación para devolver datos.
+- Las pruebas se dividieron en pruebas unitarias y de integración. Según la convención de Maven, todas las clases tienen el sufijo final 'Test'. Sin embargo, para las clases de integración, el sufijo se creó como 'ITTest'. Esta convención se puede modificar y, de ser así, se deberá agregar un complemento adicional a pom.xml para que el informe de cobertura se pueda crear correctamente.
+Ejemplo:
 
+```
+    <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>2.22.1</version>
+        <includes>
+            definiciones customizadas...
+        </includes>
+    </plugin>
+```
 
 ## Comandos para build, install, test and start 
 
@@ -89,8 +101,21 @@ A file was used to format the validation messages **resources/ValidationMessages
 
 **Important notes:** 
 
-- For this test, the relationship between the Brand and Price entities was normalized using the @ManyToOne annotation, which for performance purposes is not recommended if the results do not require such a relationship to return data.
 - The API interface created for the controller was not automatically created via the openAPI.yaml definition file. However, it is highly recommended to use this automated procedure using tools such as swagger codegen or openApi Generator.
+- For this test, the relationship between the Brand and Price entities was normalized using the @ManyToOne annotation, which for performance purposes is not recommended if the results do not require such a relationship to return data.
+- The tests were divided into unit and integration tests. According to Maven convention, all classes have the final suffix 'Test'. However, for integration classes, the suffix was created as 'ITTest'. This convention can be modified, and if so, an additional plugin will need to be added to pom.xml so that the coverage report can be created correctly.
+Example:
+
+```
+    <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>2.22.1</version>
+        <includes>
+            your definitions here...
+        </includes>
+    </plugin>
+```
 
 ## Commands to build, install, test and start the application
 

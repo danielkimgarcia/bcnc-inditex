@@ -11,7 +11,7 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 @SpringBootTest
 @AutoConfigureMockMvc
-class PriceControllerIT {
+class PriceControllerITTest {
 
     @Autowired
     private MockMvc mvc;
@@ -239,6 +239,40 @@ class PriceControllerIT {
                 .andExpect(MockMvcResultMatchers.content().json("""
                         {
                         	"message": "Required request parameter 'searchDate' for method parameter type LocalDateTime is not present"
+                        }
+                        """));
+    }
+
+    @Test
+    @DisplayName("PriceControllerIT -> Search with invalid brandId")
+    void scenario14() throws Exception {
+        mvc.perform(MockMvcRequestBuilders
+                        .get("/price")
+                        .param("searchDate", "2020-06-15T10:00:00")
+                        .param("brandId", "0")
+                        .param("productId", "35455")
+                )
+                .andExpect(MockMvcResultMatchers.status().isBadRequest())
+                .andExpect(MockMvcResultMatchers.content().json("""
+                        {
+                            "message": "getPrice.brandId: The brand ID needs to be greater than 0"
+                        }
+                        """));
+    }
+
+    @Test
+    @DisplayName("PriceControllerIT -> Search with invalid productId")
+    void scenario15() throws Exception {
+        mvc.perform(MockMvcRequestBuilders
+                        .get("/price")
+                        .param("searchDate", "2020-06-15T10:00:00")
+                        .param("brandId", "1")
+                        .param("productId", "0")
+                )
+                .andExpect(MockMvcResultMatchers.status().isBadRequest())
+                .andExpect(MockMvcResultMatchers.content().json("""
+                        {
+                            "message": "getPrice.productId: The product ID needs to be greater than 0"
                         }
                         """));
     }

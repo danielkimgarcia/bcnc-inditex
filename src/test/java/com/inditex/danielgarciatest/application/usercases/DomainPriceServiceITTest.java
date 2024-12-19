@@ -20,7 +20,7 @@ import java.time.LocalDateTime;
 import static org.mockito.BDDMockito.*;
 
 @ExtendWith(MockitoExtension.class)
-class DomainPriceServiceIT {
+class DomainPriceServiceITTest {
 
     @InjectMocks
     private DomainPriceServiceImpl service;
