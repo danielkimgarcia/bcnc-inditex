@@ -2,6 +2,7 @@ package com.inditex.danielgarciatest.infrastructure.rest.exceptions;
 
 import com.inditex.danielgarciatest.domain.exceptions.NotFoundException;
 import com.inditex.danielgarciatest.infrastructure.rest.responses.ErrorResponse;
+import jakarta.validation.ConstraintViolationException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -25,5 +26,11 @@ public class CustomExceptionHandler {
     public ResponseEntity<ErrorResponse> handle400Exception(MissingServletRequestParameterException ex) {
 
         return ResponseEntity.badRequest().body(new ErrorResponse(ex.getMessage()));
+    }
+
+    @ExceptionHandler(ConstraintViolationException.class)
+    public ResponseEntity<ErrorResponse> handle404Exception(ConstraintViolationException ex) {
+
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new ErrorResponse(ex.getMessage()));
     }
 }
